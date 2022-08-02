@@ -6,8 +6,8 @@ FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build
 WORKDIR /src
 COPY ["ASP.NETCoreDemos.csproj", "./"]
 RUN dotnet restore "ASP.NETCoreDemos.csproj"
-COPY . .
 WORKDIR "/src/."
+COPY . .
 RUN dotnet build "ASP.NETCoreDemos.csproj" -c Release -o /app/build
 
 FROM build AS publish
